@@ -6,8 +6,6 @@
 
 Before contribute to [fastgram](https://github.com/manducku/blogram/), should add pre-commit to git hooks 
 
-
-'''
+```
 $ ln config/git/hooks/pre-commit .git/hooks 
-'''
-
+```
