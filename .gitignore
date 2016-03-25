@@ -60,3 +60,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+#autoenv .env
+.env
+
+#vim swp file 
+*.sw[po]
