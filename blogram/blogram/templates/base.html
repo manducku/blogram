@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} | 블로그램 </title>
+</head>
+<body>
+    {% include "partials/header.html" %}
+
+    <section id = "content"> 
+    {% block content %}
+    {% endblock %}
+    </section>
+
+    {% include "partials/footer.html" %} 
+
+</body>
+</html>
