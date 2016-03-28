@@ -3,7 +3,7 @@ from django.conf import settings
 
 
 class Comment(models.Model):
-    
+
     hash_id = models.CharField(
             max_length=8,
             blank=True,
@@ -22,3 +22,8 @@ class Comment(models.Model):
 
     create_at = models.DateTimeField(auto_now_add=True,)
     update_at = models.DateTimeField(auto_now=True,)
+
+    def init_hash_id(self):
+        from hashids import Hashids
+        hashids = Hashids(salt="manducku", min_length=4)
+        return hashids.encode(self.id)
