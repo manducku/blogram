@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blogram',
     'users',
     'django_extensions',
+    'posts',
 ]
 
 MIDDLEWARE_CLASSES = [
