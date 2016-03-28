@@ -3,6 +3,7 @@ from django.conf import settings
 
 from posts.models import Post
 
+
 class Like(models.Model):
 
     user = models.ForeignKey(
