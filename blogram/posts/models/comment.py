@@ -3,6 +3,13 @@ from django.conf import settings
 
 
 class Comment(models.Model):
+    
+    hash_id = models.CharField(
+            max_length=8,
+            blank=True,
+            null=True,
+            unique=True,
+            )
 
     user = models.ForeignKey(
             settings.AUTH_USER_MODEL,
