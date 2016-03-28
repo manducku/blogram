@@ -1,12 +1,17 @@
 from django.db import models
 from django.conf import settings
 
+from posts.models import Post
 
-class Post(models.Model):
+class Comment(models.Model):
+
     user = models.ForeignKey(
             settings.AUTH_USER_MODEL,
             )
-    image = models.ImageField()
+    post = models.ForeignKey(
+            "Post",
+            )
+
     content = models.TextField()
 
     create_at = models.DateTimeField(auto_now_add=True,)
