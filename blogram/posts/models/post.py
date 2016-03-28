@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+from tags.models import Tag
+
 
 class Post(models.Model):
     user = models.ForeignKey(
@@ -17,6 +19,10 @@ class Post(models.Model):
             blank=True,
             null=True,
             unique=True,
+            )
+
+    tag_set = models.ManyToManyField(
+            Tag,
             )
 
     def init_hash_id(self):
