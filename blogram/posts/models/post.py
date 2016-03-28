@@ -3,7 +3,6 @@ from django.conf import settings
 
 from tags.models import Tag
 
-
 class Post(models.Model):
     user = models.ForeignKey(
             settings.AUTH_USER_MODEL,
@@ -23,6 +22,12 @@ class Post(models.Model):
 
     tag_set = models.ManyToManyField(
             Tag,
+            )
+
+    like_user_set = models.ManyToManyField(
+            settings.AUTH_USER_MODEL,
+            related_name='like_post_set',
+            through="Like",
             )
 
     def init_hash_id(self):
