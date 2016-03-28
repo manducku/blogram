@@ -24,6 +24,6 @@ class Comment(models.Model):
     update_at = models.DateTimeField(auto_now=True,)
 
     def init_hash_id(self):
-        from hashids import Hashids
-        hashids = Hashids(salt="manducku", min_length=4)
-        return hashids.encode(self.id)
+        from utils.hash_id import get_encoded_hash_id
+        self.hash_id = get_encoded_hash_id(self)
+        self.save()
