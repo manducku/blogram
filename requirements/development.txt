@@ -1,3 +1,4 @@
 -r production.txt
 pep8
 Pillow
+hashids
