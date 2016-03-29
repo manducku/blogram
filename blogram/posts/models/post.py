@@ -45,3 +45,5 @@ class Post(models.Model):
                     "slug": self.hash_id,
                     }
                 )
+    def __str__(self):
+        return str(self.id)
