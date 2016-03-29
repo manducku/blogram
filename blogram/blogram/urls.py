@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^$', HomeView.as_view(), name="home"),
 
     url(r'^posts/$', PostListView.as_view(), name="posts"),
-    url(r'posts/(?P<pk>\d+)/$', PostDetailView.as_view(), name="detail"),
+    url(r'posts/(?P<slug>\w+)/$', PostDetailView.as_view(), name="detail"),
 
     url(r'^login/$', LoginView.as_view(), name="login"),
     url(r'^logout/$', LogoutView.as_view(), name="logout"),
