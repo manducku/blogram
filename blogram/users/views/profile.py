@@ -1,5 +1,5 @@
 from django.views.generic import DetailView
-from django.shortcuts import render, render 
+from django.shortcuts import render, render
 from django.core.urlresolvers import reverse
 
 from django.contrib.auth import get_user_model
