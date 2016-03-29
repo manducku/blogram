@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^$', HomeView.as_view(), name="home"),
     url(r'^logout/$', LogoutView.as_view(), name="logout"),
     url(r'^signup/$', SignupView.as_view(), name="signup"),
+    url(r'^(?P<slug>\w+)/$', ProfileView.as_view(), name="profile"),
 ]
