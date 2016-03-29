@@ -132,3 +132,8 @@ AUTH_USER_MODEL = "users.User"
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT_DIR, "dist", "media")
+STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, "dist", "static")
+
+STATIC_FILE_DIR = [
+            os.path.join(BASE_DIR, "blogram", "static"),
+        ]
