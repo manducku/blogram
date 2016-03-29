@@ -12,16 +12,21 @@
     <div>
     <h1>Comment ({{post.comment_set.count}})</h1>
     </div> 
-    
-    <div>
-        <form action="{% url 'comment-create' post.hash_id %}" method="POST">
-            {% csrf_token %}
-        <input type="text" placehoder="comment" name="content" required>
-        <input type="hidden" name="next" value={{request.GET.next}}>
-        <input type="submit" value="댓글 달기">
-    </div>
-    
 
+    {% if request.user.is_authenticated %} 
+        <div>
+            <form action="{% url 'comment-create' post.hash_id %}" method="POST">
+                {% csrf_token %}
+            <input type="text" placehoder="comment" name="content" required>
+            <input type="hidden" name="next" value={{request.GET.next}}>
+            <input type="submit" value="댓글 달기">
+        </div>
+    {% else %}
+        <div>
+        <span> 로그인이 필요합니다.</span>
+        <a href = {% url 'login' %}>로그인 </a> 
+        </div>
+    {% endif %}
     <div>
     <ul>
         {% for comment in post.comment_set.all %}
