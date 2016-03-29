@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    tag detail
+{% endblock %}
+
+{% block content %}
+    <h3>Post List</h3>
+    <ul>
+    {% for post in tag.post_set.all %}
+        <a href= {% url 'detail' post.hash_id %}
+            <li>
+                <img src="{{post.image.url}}" alt="" width="300" height="300" />
+            </li>
+        </a>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
