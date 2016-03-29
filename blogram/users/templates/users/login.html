@@ -5,5 +5,18 @@
 {% endblock %}
 
 {% block content %}
+<div>
 <h1> login view </h1>
+</div>
+
+<div>
+    <form action = {% url 'login' %} method="POST">
+        {% csrf_token %}
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <input type="hidden" name="next" value={{request.GET.next}}>
+        <input type="SUBMIT">
+    </form>
+</div>
+
 {% endblock %}

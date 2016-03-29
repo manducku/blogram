@@ -1,2 +1,30 @@
 <header id="header">
+    <div style="background-color: #4685C4; height:20px; padding: 10px; margin-bottom: 5px;">
+        {% if request.user.is_authenticated %}
+            <span>
+            <a href= "{% url 'logout' %}">
+            logout
+            </a>
+            </span>
+        {% else %}
+            <span>
+            <a href= "{% url 'login' %}">
+            login
+            </a> 
+            </span>
+
+            <span>
+            <a href= "{% url 'signup' %}">
+            signup
+            </a>
+            </span>
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+        {{request.user.username}}로 로그인 됨 
+        {% else %}
+        로그인이 필요합니다. 
+        {% endif %}
+    </div>
+
 </header>
