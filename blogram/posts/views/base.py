@@ -3,4 +3,4 @@ from posts.models import Post
 
 
 class PostBaseView(View):
-   model = Post 
+    model = Post
