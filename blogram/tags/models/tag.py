@@ -19,4 +19,3 @@ class Tag(models.Model):
         return "#{tag_name}".format(
                 tag_name=self.name,
                 )
-
