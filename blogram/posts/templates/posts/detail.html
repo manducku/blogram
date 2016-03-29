@@ -20,6 +20,7 @@
             <input type="text" placehoder="comment" name="content" required>
             <input type="hidden" name="next" value={{request.GET.next}}>
             <input type="submit" value="댓글 달기">
+            </form>
         </div>
     {% else %}
         <div>
@@ -38,6 +39,11 @@
     
     <div>
         <h3>Tag ({{post.tag_set.count}})</h3> 
+        <form action="{% url 'tag-create' post.hash_id %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placehoder="tag" name="name" required>
+            <input type="submit" value="태그 달기">
+        </form>
         <ul>
         {% for tag in post.tag_set.all %}
             <li>{{tag.full_name}}</li>
