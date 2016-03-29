@@ -6,4 +6,22 @@
 
 {% block content %}
   <img src="{{post.image.url }}" alt="" width="300" height="300" />
+
+  <section>
+    <h1>Comment ({{post.comment_set.count}})</h1>
+
+    <ul>
+        {% for comment in post.comment_set.all %}
+
+            <li>{{comment.content}}</li>
+
+        {% endfor %}
+    </ul>
+
+
+
+
+
+  </section>
+
 {% endblock %}
