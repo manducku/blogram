@@ -3,7 +3,6 @@ from django.conf import settings
 
 from tags.models import Tag
 
-
 class Post(models.Model):
     user = models.ForeignKey(
             settings.AUTH_USER_MODEL,
