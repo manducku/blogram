@@ -46,7 +46,11 @@
         </form>
         <ul>
         {% for tag in post.tag_set.all %}
-            <li>{{tag.full_name}}</li>
+            <li>
+                <a href="{% url 'tag-detail' tag.name %}">
+                    {{tag.full_name}}
+                </a>
+            </li>
         {% endfor %}
         </ul>
     </div>
