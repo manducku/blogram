@@ -10,7 +10,7 @@
   <img src="{{post.image.url }}" alt="" width="300" height="300" />
 
     <div>
-    <h1>Comment ({{post.comment_set.count}})</h1>
+    <h3>Comment ({{post.comment_set.count}})</h3>
     </div> 
 
     {% if request.user.is_authenticated %} 
@@ -27,7 +27,7 @@
         <a href = {% url 'login' %}>로그인 </a> 
         </div>
     {% endif %}
-    <div>
+    <div style="margin: 10px;">
     <ul>
         {% for comment in post.comment_set.all %}
             <li>{{comment.content}}</li>
