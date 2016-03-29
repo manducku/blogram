@@ -2,6 +2,7 @@ from django.views.generic import CreateView
 
 from posts.models import Comment, Post
 
+
 class CommentCreateView(CreateView):
 
     model = Comment

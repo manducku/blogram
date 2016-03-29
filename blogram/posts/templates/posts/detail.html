@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block content %}
+  <div style="margin: 0 auto; width:300px; text-align:center">
+
   <img src="{{post.image.url }}" alt="" width="300" height="300" />
 
-  <section>
     <div>
     <h1>Comment ({{post.comment_set.count}})</h1>
     </div> 
@@ -27,6 +28,6 @@
         {% endfor %}
     </ul>
     </div>
-  </section>
+  </div>
 
 {% endblock %}
