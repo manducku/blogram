@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     'django_extensions',
     'posts',
+    'tags',
 ]
 
 MIDDLEWARE_CLASSES = [
