@@ -8,20 +8,25 @@
   <img src="{{post.image.url }}" alt="" width="300" height="300" />
 
   <section>
+    <div>
     <h1>Comment ({{post.comment_set.count}})</h1>
+    </div> 
+    
+    <div>
+        <form action="{% url 'comment-create' post.hash_id %}" method="POST">
+            {% csrf_token %}
+        <input type="text" placehoder="comment" name="content" required>
+        <input type="submit" value="댓글 달기">
+    </div>
+    
 
+    <div>
     <ul>
         {% for comment in post.comment_set.all %}
-
             <li>{{comment.content}}</li>
-
         {% endfor %}
     </ul>
-
-
-
-
-
+    </div>
   </section>
 
 {% endblock %}
