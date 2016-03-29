@@ -5,5 +5,56 @@
 {% endblock %}
 
 {% block content %}
+  <div style="margin: 0 auto; width:300px; text-align:center">
+
   <img src="{{post.image.url }}" alt="" width="300" height="300" />
+
+    <div>
+    <h3>Comment ({{post.comment_set.count}})</h3>
+    </div> 
+
+    {% if request.user.is_authenticated %} 
+        <div>
+            <form action="{% url 'comment-create' post.hash_id %}" method="POST">
+                {% csrf_token %}
+            <input type="text" placehoder="comment" name="content" required>
+            <input type="hidden" name="next" value={{request.GET.next}}>
+            <input type="submit" value="댓글 달기">
+            </form>
+        </div>
+    {% else %}
+        <div>
+        <span> 로그인이 필요합니다.</span>
+        <a href = {% url 'login' %}>로그인 </a> 
+        </div>
+    {% endif %}
+
+    <div style="margin: 10px;">
+    <ul>
+        {% for comment in post.comment_set.all %}
+            <li>{{comment.content}}</li>
+        {% endfor %}
+    </ul>
+    </div>
+    
+    <div>
+        <h3>Tag ({{post.tag_set.count}})</h3> 
+        <form action="{% url 'tag-create' post.hash_id %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placehoder="tag" name="name" required>
+            <input type="submit" value="태그 달기">
+        </form>
+        <ul>
+        {% for tag in post.tag_set.all %}
+            <li>
+                <a href="{% url 'tag-detail' tag.name %}">
+                    {{tag.full_name}}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+  </div>
+
 {% endblock %}
