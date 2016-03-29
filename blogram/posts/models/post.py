@@ -23,6 +23,7 @@ class Post(models.Model):
 
     tag_set = models.ManyToManyField(
             Tag,
+            blank=True, 
             )
 
     like_user_set = models.ManyToManyField(
