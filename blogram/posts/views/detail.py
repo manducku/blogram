@@ -1,9 +1,9 @@
 from django.views.generic import DetailView
 
 from posts.models import Post
+from posts.views.base import PostBaseView
 
 
-class PostDetailView(DetailView):
+class PostDetailView(PostBaseView, DetailView):
     template_name = "posts/detail.html"
-    model = Post 
-    slug_field = "hash_id" 
+    slug_field = "hash_id"
