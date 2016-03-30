@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 
 from tags.models import Tag
+from tags.utils import get_tags_all
 
 
 class Post(models.Model):
@@ -52,12 +53,7 @@ class Post(models.Model):
     @property
     def tagified_content(self):
 
-        tag_list = [
-                word
-                for word
-                in self.content.split(" ")
-                if word.startswith('#')
-                ]
+        tag_list = get_tags_all(self.content)
 
         word_list = [
                 word
@@ -66,9 +62,8 @@ class Post(models.Model):
                 ]
 
         tagified_word_list = []
-
         for word in word_list:
-            if word in tag_list:
+            if word[1:] in tag_list:
                 word = "<a href='{tag_url}'>{tag_name}</a>".format(
                         tag_url=Tag.objects.get(name=word[1:]).get_absolute_url(),
                         tag_name=word,

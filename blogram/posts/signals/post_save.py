@@ -3,21 +3,14 @@ from django.dispatch import receiver
 
 from posts.models import Post
 from tags.models import Tag
+from tags.utils import get_tags_all
 
 
 @receiver(post_save, sender=Post)
 def post_save_post(sender, instance, created, **kwargs):
     if not instance.hash_id:
         instance.init_hash_id()
-
-    str_split = instance.content.split(" ")
-    tag_list = [
-            word[1:]
-            for word
-            in str_split
-            if word.startswith('#')
-            ]
-
+    tag_list = get_tags_all(instance.content)
     for tag_name in tag_list:
             tag, tag_is_created = Tag.objects.get_or_create(
                     name=tag_name
