@@ -28,4 +28,9 @@ body {
 
 .posts-title{
     margin-bottom: 10px;
+    height: 80px;
+}
+
+.posts-add{
+    padding-top:20px;
 }
