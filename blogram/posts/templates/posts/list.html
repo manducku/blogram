@@ -5,16 +5,17 @@
 {% endblock %}
 
 {% block content %}
-<h1>PostListView</h1>
+    <div class="col-xs-12 posts-title">
+        <h2>{{request.user.username}} </h2>
+    </div>
 
-<ul>
   {% for post in posts %}
-  <li>
-      <a href="{% url "detail" post.hash_id %}">
-          <img src="{{ post.image.url }}" alt="" width="300" height="300" />
-      </a>
-  </li>
+    <div class="col-xs-4 posts-content">
+          <a href="{% url "detail" post.hash_id %}">
+          <img src="{{ post.image.url }}" alt="" width="250" height="250" />
+          </a>
+          <h5>{{post.content}}</h5>
+    </div>
   {% endfor %}
-</ul>
 
 {% endblock %}

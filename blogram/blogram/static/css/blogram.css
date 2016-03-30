@@ -16,3 +16,16 @@ body {
     text-align: center;
     padding: 20px;
 }
+
+#content div div{
+    text-align: center;
+}
+
+.posts-content{
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.posts-title{
+    margin-bottom: 10px;
+}
