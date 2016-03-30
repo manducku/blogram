@@ -21,10 +21,12 @@
 <body>
     {% include "partials/header.html" %}
 
+    <div class="row">
     <section id = "content"> 
     {% block content %}
     {% endblock %}
     </section>
+    </div>
 
     {% include "partials/footer.html" %} 
 
