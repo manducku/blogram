@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^$', HomeView.as_view(), name="home"),
 
     url(r'^posts/$', PostListView.as_view(), name="posts"),
+    url(r'^posts/new/$', PostCreateView.as_view(), name="post-create"),
     url(r'posts/(?P<slug>\w+)/$', PostDetailView.as_view(), name="detail"),
     url(r'posts/(?P<slug>\w+)/comments$', CommentCreateView.as_view(), name="comment-create"),
     url(r'posts/(?P<slug>\w+)/tags$', TagCreateView.as_view(), name="tag-create"),
