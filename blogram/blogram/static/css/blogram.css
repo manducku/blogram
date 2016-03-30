@@ -5,3 +5,14 @@ body {
 .home{
     text-align: center;
 }
+
+.logo{
+    text-align: center;
+}
+
+#header div div{
+    height: 50px;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 20px;
+}
