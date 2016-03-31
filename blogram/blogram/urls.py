@@ -10,7 +10,7 @@ from tags.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeView.as_view(), name="home"),
+    url(r'^$', PostListView.as_view(), name="home"),
 
     url(r'^posts/$', PostListView.as_view(), name="posts"),
     url(r'^posts/new/$', PostCreateView.as_view(), name="post-create"),
