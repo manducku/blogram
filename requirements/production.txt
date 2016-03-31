@@ -1,4 +1,5 @@
 Django==1.9.1
+pep8
 raven
 Pillow
 hashids
