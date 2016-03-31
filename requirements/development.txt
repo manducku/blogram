@@ -1,8 +1,4 @@
 -r production.txt
 pep8
-Pillow
-hashids
-psycopg2
-dj-database-url
 django-debug-toolbar
 django-extensions
