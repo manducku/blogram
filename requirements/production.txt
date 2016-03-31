@@ -1,1 +1,7 @@
 Django==1.9.1
+raven
+Pillow
+hashids
+psycopg2
+dj-database-url
+pep8

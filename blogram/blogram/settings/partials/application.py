@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import dj_database_url
+import raven
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 PROJECT_ROOT_DIR = os.path.dirname(BASE_DIR)
 
 
@@ -40,9 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogram',
     'users',
-    'django_extensions',
+
     'posts',
     'tags',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -80,36 +83,6 @@ WSGI_APPLICATION = 'blogram.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blogram',
-        'USER': 'manducku',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
-
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -128,18 +101,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
-
-# custom Authentication settings
-AUTH_USER_MODEL = "users.User"
-
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(PROJECT_ROOT_DIR, "dist", "media")
-STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, "dist", "static")
-
-STATIC_FILE_DIR = [
-            os.path.join(BASE_DIR, "blogram", "static"),
-        ]
-
-LOGIN_URL = '/login/'
+RAVEN_CONFIG = {
+            'dsn': 'https://182de4087023406ca37c3030806c679a:c5dd1006f97d476280e66a902e9de901@app.getsentry.com/72472',
+                        }
