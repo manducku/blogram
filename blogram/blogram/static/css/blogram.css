@@ -1,3 +1,36 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+.home{
+    text-align: center;
+}
+
+.logo{
+    text-align: center;
+}
+
+#header div div{
+    height: 50px;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 20px;
+}
+
+#content div div{
+    text-align: center;
+}
+
+.posts-content{
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.posts-title{
+    margin-bottom: 10px;
+    height: 80px;
+}
+
+.posts-add{
+    padding-top:20px;
+}

@@ -17,13 +17,18 @@
     <link rel='stylesheet' href="{% static 'css/blogram.css' %}">
 
     <title>{% block title %}{% endblock %} | 블로그램 </title>
+
 </head>
 <body>
-    {% include "partials/header.html" %}
 
+    {% include "partials/header.html" %}
+   
     <section id = "content"> 
-    {% block content %}
-    {% endblock %}
+    <div class = "row">
+        <div class = "col-md-8 col-md-offset-2"> 
+            {% block content %}
+            {% endblock %}
+        </div>
     </section>
 
     {% include "partials/footer.html" %} 
