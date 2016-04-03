@@ -5,3 +5,5 @@ hashids
 psycopg2
 dj-database-url
 pep8
+django-storages-redux
+boto
